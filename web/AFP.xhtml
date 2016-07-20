@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="formAFP">
+            
+            <p:outputLabel for="german" value="German:" />
+            <p:calendar id="german" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd"/> 
+            <br />
+            <br />
+            <p:panelGrid id="gridAFP" columns="2">
+
+                <p:commandButton value="Agregar línea" update="tblAFP" oncomplete="PF('dlgAFP').show()"/>
+                <p:dataTable value="#{afpController.listaAFPdt}" id="tblAFP" var="afp" editable="true" editMode="cell" widgetVar="cellAFP">
+                   <f:facet name="header">
+                        In-Cell Editing
+                   </f:facet>
+
+                   <p:column headerText="codigo">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{afp.idafp}" />                       
+                            </f:facet>
+                            <f:facet name="input"><p:inputText value="#{afp.idafp}" id="modelInput" style="width:96%"/>                     
+                            </f:facet>
+                        </p:cellEditor>                      
+                    </p:column>
+                    <p:column headerText="Descripcion">
+                        <p:cellEditor>
+                            <f:facet name="input">
+                                <p:inputText value="#{afp.nombreafp}" id="modelInput" style="width:96%"/>
+                            </f:facet>
+                             <f:facet name="output">
+                                <h:outputText value="#{afp.nombreafp}" />
+                            </f:facet>
+                        </p:cellEditor>  
+                    </p:column>
+                </p:dataTable>
+            </p:panelGrid>
+            
+            <p:panelGrid columns="2">
+                <p:outputLabel value="#{bundle.CreateAfpLabel_idafp}" for="idafp"/>
+                <p:inputText id="idafp" value="#{afpController.selected.idafp}" title="#{bundle.CreateAfpTitle_idafp}" required="true" requiredMessage="#{bundle.CreateAfpRequiredMessage_idafp}"/>
+                <p:outputLabel value="#{bundle.CreateAfpLabel_nombreafp}" for="nombreafp" />
+                <p:inputText id="nombreafp" value="#{afpController.selected.nombreafp}" title="#{bundle.CreateAfpTitle_nombreafp}" required="true" requiredMessage="#{bundle.CreateAfpRequiredMessage_nombreafp}"/>
+                <p:commandButton value="Guardar" action="#{afpController.create}"/>
+                <p:commandLink action="#{afpController.create}" value="#{bundle.CreateAfpSaveLink}" />
+            </p:panelGrid>           
+        </h:form>  
+        
+        <p:dialog header="Digite AFP" widgetVar="dlgAFP"   
+                      showEffect="fade" hideEffect="fade">
+                <h:form id="frmIngresarAFP">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="#{bundle.CreateAfpLabel_idafp}" for="idafp"/>
+                        <p:inputText id="idafp" value="#{afpController.selected.idafp}" title="#{bundle.CreateAfpTitle_idafp}" required="true" requiredMessage="#{bundle.CreateAfpRequiredMessage_idafp}"/>
+                        <p:outputLabel value="#{bundle.CreateAfpLabel_nombreafp}" for="nombreafp" />
+                        <p:inputText id="nombreafp" value="#{afpController.selected.nombreafp}" title="#{bundle.CreateAfpTitle_nombreafp}" required="true" requiredMessage="#{bundle.CreateAfpRequiredMessage_nombreafp}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="GurdarPrimeFaces" id="GD2" actionListener="#{afpController.create()}" icon="ui-icon-disk" update=""/>
+                    <p:commandButton value="cerrar" id="GD1" oncomplete="PF('dlgAFP').hide()" icon="ui-icon-disk" update=""/>            
+                </h:form>
+        </p:dialog> 
+    </h:body>
+</html>
+

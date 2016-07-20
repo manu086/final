@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Empleado"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Código"/>
+                    <h:outputText value="#{empleadoController.selected.idempleado}" title="#{bundle.ViewEmpleadoTitle_idempleado}"/>
+                    <h:outputText value="ISSS"/>
+                    <h:outputText value="#{empleadoController.selected.isss}" title="#{bundle.ViewEmpleadoTitle_isss}"/>
+                    <h:outputText value="NUP"/>
+                    <h:outputText value="#{empleadoController.selected.nup}" title="#{bundle.ViewEmpleadoTitle_nup}"/>
+                    <h:outputText value="Fecha de Ingreso"/>
+                    <h:outputText value="#{empleadoController.selected.fechadeingreso}" title="#{bundle.ViewEmpleadoTitle_fechadeingreso}"/>
+                    <h:outputText value="Sueldo"/>
+                    <h:outputText value="#{empleadoController.selected.sueldo}" title="#{bundle.ViewEmpleadoTitle_sueldo}"/>
+                    <h:outputText value="Activo"/>
+                    <h:outputText value="#{empleadoController.selected.activo}" title="#{bundle.ViewEmpleadoTitle_activo}"/>
+                    <h:outputText value="Tipo de Planilla"/>
+                    <h:outputText value="#{empleadoController.selected.tipodeplanillaIdtipoplanilla.nombreplanilla}" title="#{bundle.ViewEmpleadoTitle_tipodeplanillaIdtipoplanilla}"/>
+                    <h:outputText value="Renta"/>
+                    <h:outputText value="#{empleadoController.selected.rentaIdrenta}" title="#{bundle.ViewEmpleadoTitle_rentaIdrenta}"/>
+                    <h:outputText value="Estado Civil"/>
+                    <h:outputText value="#{empleadoController.selected.estadoIdestado.nombreestado}" title="#{bundle.ViewEmpleadoTitle_estadoIdestado}"/>
+                    <h:outputText value="Cargo"/>
+                    <h:outputText value="#{empleadoController.selected.cargoIdcargo.nombrecargo}" title="#{bundle.ViewEmpleadoTitle_cargoIdcargo}"/>
+                    <h:outputText value="DUI de Candidato"/>
+                    <h:outputText value="#{empleadoController.selected.candidatoIdcandidato.dui}" title="#{bundle.ViewEmpleadoTitle_candidatoIdcandidato}"/>
+                    <h:outputText value="AFP"/>
+                    <h:outputText value="#{empleadoController.selected.afpIdafp.nombreafp}" title="#{bundle.ViewEmpleadoTitle_afpIdafp}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{empleadoController.destroyAndView}" value="Eliminar"/>
+                <br />
+				<br />
+                <h:link outcome="Edit" value="Editar"/>
+                <br />
+				<br />
+                <h:commandLink action="#{empleadoController.prepareCreate}" value="Crear Nuevo Empleado" />
+                <br />
+				<br />
+                <h:commandLink action="#{empleadoController.prepareList}" value="Mostrar todos"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="Inicio"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
