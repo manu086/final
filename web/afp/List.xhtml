@@ -22,13 +22,13 @@
                     <h:dataTable value="#{afpController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAfpTitle_idafp}"/>
+                                <h:outputText value="Código AFP"/>
                             </f:facet>
                             <h:outputText value="#{item.idafp}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAfpTitle_nombreafp}"/>
+                                <h:outputText value="Nombre"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreafp}"/>
                         </h:column>
@@ -36,19 +36,19 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{afpController.prepareView}" value="#{bundle.ListAfpViewLink}"/>
+                            <h:commandLink action="#{afpController.prepareView}" value="Ver"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{afpController.prepareEdit}" value="#{bundle.ListAfpEditLink}"/>
+                            <h:commandLink action="#{afpController.prepareEdit}" value="Editar"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{afpController.destroy}" value="#{bundle.ListAfpDestroyLink}"/>
+                            <h:commandLink action="#{afpController.destroy}" value="Eliminar"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{afpController.prepareCreate}" value="#{bundle.ListAfpCreateLink}"/>
+                <h:commandLink action="#{afpController.prepareCreate}" value="Crear nuevo"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListAfpIndexLink}"/>
+                <h:link outcome="/index" value="Inicio"/>
             </h:form>
         </ui:define>
     </ui:composition>
