@@ -220,7 +220,7 @@ public class Candidato implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Candidato[ idcandidato=" + idcandidato + " ]";
+        return dui;
     }
     
 }

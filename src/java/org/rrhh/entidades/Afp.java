@@ -109,7 +109,7 @@ public class Afp implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Afp[ idafp=" + idafp + " ]";
+        return nombreafp;
     }
     
 }

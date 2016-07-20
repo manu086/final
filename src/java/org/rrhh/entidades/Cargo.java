@@ -106,7 +106,7 @@ public class Cargo implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Cargo[ idcargo=" + idcargo + " ]";
+        return nombrecargo;
     }
     
 }

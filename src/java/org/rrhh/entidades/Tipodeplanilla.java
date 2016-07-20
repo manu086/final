@@ -106,7 +106,7 @@ public class Tipodeplanilla implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Tipodeplanilla[ idtipoplanilla=" + idtipoplanilla + " ]";
+        return nombreplanilla;
     }
     
 }

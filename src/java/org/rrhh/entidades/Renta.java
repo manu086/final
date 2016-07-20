@@ -160,7 +160,7 @@ public class Renta implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Renta[ idrenta=" + idrenta + " ]";
+        return + idrenta + "";
     }
     
 }
