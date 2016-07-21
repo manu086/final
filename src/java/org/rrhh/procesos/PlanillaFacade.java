@@ -59,6 +59,15 @@ public class PlanillaFacade extends AbstractFacade<Planilla> {
         
         return listaEmpleado;
     }
+    
+    public List<Empleado> getListaEmpleadoInactivos(){
+        List<Empleado> listaEmpleadoInactivo=null;
+        Query q = em.createNamedQuery("EmpleadoInactivo");
+        listaEmpleadoInactivo = q.getResultList();
+                
+        return listaEmpleadoInactivo;
+    } 
+     
      
     public double datoAfpPlanilla(){
         double salario = 800.00;

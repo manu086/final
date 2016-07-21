@@ -18,14 +18,14 @@
             </p:panelGrid>
             <br />
             <br />
-            <p:dataTable value="#{planillaController.listaPlanilla}" id="tblPla" var="pla" editable="true" editMode="cell" widgetVar="cellEMP">
+            <p:dataTable value="" id="tblPla" var="pla" editable="true" editMode="cell" widgetVar="cellEMP">
                 <f:facet name="header">
                     PLANILLA
                 </f:facet>
                 <p:column headerText="Codigo">
                     <h:outputText value="" />                        
                 </p:column>
-                <p:column headerText="CARGO">
+                <p:column headerText="CARGOo">
                     <h:outputText value="" />                        
                 </p:column>
                 <p:column headerText="SUELDO">
@@ -81,19 +81,50 @@
 
                 </p:dataTable>
             </p:panelGrid>
-                <p:commandButton value="Gurdar" id="GD" actionListener="#{empleadoController.create()}" icon="ui-icon-disk" update=""/>
-                <p:commandButton value="cerrar" id="CR" oncomplete="PF('dlgEMPac').hide()" icon="ui-icon-disk" update=""/>
+                <p:commandButton value="Generar Planilla" id="GND" actionListener="" icon="ui-icon-disk" update=""/>
+                <br />
+                <br />
+                <p:panelGrid columns="2">
+                    <p:commandButton value="Gurdar" id="GD" actionListener="" icon="ui-icon-disk" update=""/>
+                    <p:commandButton value="cerrar" id="CR" oncomplete="PF('dlgEMPac').hide()" icon="ui-icon-disk" update=""/>
+                </p:panelGrid>
             </h:form>
             </p:dialog>
 
             <p:dialog header="Empleados ACTIVOS" widgetVar="dlgEMPinac"   
                    showEffect="fade" hideEffect="fade" width="1000" height="400">
                 <h:form>
+                    
+                    <p:panelGrid columns="2">
+                    <p:dataTable value="#{planillaController.listaEmpleadosInactivos}" id="tblEmpInactivos" var="empIn" editable="true" editMode="cell" widgetVar="cellEMP">
+                    <f:facet name="header">
+                       EMPLEADOS INACTIVOS
+                    </f:facet>
+                    <p:column headerText="id">
+                        <h:outputText value="#{empIn.idempleado}" />                        
+                    </p:column>
+                    <p:column headerText="id">
+                        <h:outputText value="#{empIn.candidatoIdcandidato.nombres}" />                        
+                    </p:column>    
+                    <p:column headerText="CARGO">
+                        <h:outputText value="#{empIn.cargoIdcargo.nombrecargo}" />                        
+                    </p:column>
+                    <p:column headerText="SUELDO">
+                      <h:outputText value="#{empIn.sueldo}" />                        
+                    </p:column>
+                    <p:column headerText="NUMERO-ISSS">
+                        <h:outputText value="#{empIn.isss}" />                        
+                    </p:column>
+                    <p:column headerText="ID-RENTA">
+                        <h:outputText value="#{empIn.rentaIdrenta.comentario}" />                        
+                    </p:column>
 
-                    <p:commandButton value="Gurdar" id="GDin" actionListener="#{empleadoController.create()}" icon="ui-icon-disk" update=""/>
-                    <p:commandButton value="cerrar" id="CRin" oncomplete="PF('dlgEMPinac').hide()" icon="ui-icon-disk" update=""/>
-
-                </h:form>              
+                </p:dataTable>
+            </p:panelGrid>
+                <p:commandButton value="Gurdar" id="GD" actionListener="#{empleadoController.create()}" icon="ui-icon-disk" update=""/>
+                <p:commandButton value="cerrar" id="CR" oncomplete="PF('dlgEMPinac').hide()" icon="ui-icon-disk" update=""/>
+            </h:form>
+                                
             </p:dialog>
     </ui:define>
 

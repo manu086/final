@@ -25,6 +25,7 @@ public class PlanillaController implements Serializable {
     @EJB
     private PlanillaFacade planillaFacade;
     private DataModel listaEmp;
+    private DataModel listaEmpInactivo;
     private DataModel listaPlanilla;
 
     private Planilla current;
@@ -245,6 +246,11 @@ public class PlanillaController implements Serializable {
     public DataModel<Empleado> getListaEmpleados(){
         listaEmp = new ListDataModel<>(planillaFacade.getListaEmpleado());           
         return listaEmp;
+    }
+    
+    public DataModel<Empleado> getListaEmpleadosInactivos(){
+        listaEmpInactivo = new ListDataModel<>(planillaFacade.getListaEmpleadoInactivos());
+        return listaEmpInactivo;
     }
     
     public double getDatoAfpPlanilla(){
