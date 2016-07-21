@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditDescuentoTitle}"></h:outputText>
+            <h:outputText value="Editar Descuento"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,30 +15,30 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditDescuentoLabel_iddescuento}" for="iddescuento" />
+                    <h:outputLabel value="Codigo" for="iddescuento" />
                     <h:inputText id="iddescuento" value="#{descuentoController.selected.iddescuento}" title="#{bundle.EditDescuentoTitle_iddescuento}" required="true" requiredMessage="#{bundle.EditDescuentoRequiredMessage_iddescuento}"/>
-                    <h:outputLabel value="#{bundle.EditDescuentoLabel_comentario}" for="comentario" />
+                    <h:outputLabel value="Comentario" for="comentario" />
                     <h:inputText id="comentario" value="#{descuentoController.selected.comentario}" title="#{bundle.EditDescuentoTitle_comentario}" required="true" requiredMessage="#{bundle.EditDescuentoRequiredMessage_comentario}"/>
-                    <h:outputLabel value="#{bundle.EditDescuentoLabel_monto}" for="monto" />
+                    <h:outputLabel value="Monto" for="monto" />
                     <h:inputText id="monto" value="#{descuentoController.selected.monto}" title="#{bundle.EditDescuentoTitle_monto}" />
-                    <h:outputLabel value="#{bundle.EditDescuentoLabel_tipodescuentoIdtipodescuento}" for="tipodescuentoIdtipodescuento" />
+                    <h:outputLabel value="Tipo de Descuento" for="tipodescuentoIdtipodescuento" />
                     <h:selectOneMenu id="tipodescuentoIdtipodescuento" value="#{descuentoController.selected.tipodescuentoIdtipodescuento}" title="#{bundle.EditDescuentoTitle_tipodescuentoIdtipodescuento}" required="true" requiredMessage="#{bundle.EditDescuentoRequiredMessage_tipodescuentoIdtipodescuento}">
                         <f:selectItems value="#{tipodescuentoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditDescuentoLabel_empleadoIdempleado}" for="empleadoIdempleado" />
+                    <h:outputLabel value="Empleado" for="empleadoIdempleado" />
                     <h:selectOneMenu id="empleadoIdempleado" value="#{descuentoController.selected.empleadoIdempleado}" title="#{bundle.EditDescuentoTitle_empleadoIdempleado}" required="true" requiredMessage="#{bundle.EditDescuentoRequiredMessage_empleadoIdempleado}">
                         <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{descuentoController.update}" value="#{bundle.EditDescuentoSaveLink}"/>
+                <h:commandLink action="#{descuentoController.update}" value="Modificar"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditDescuentoViewLink}"/>
+                <h:link outcome="View" value="Ver"/>
                 <br />
-                <h:commandLink action="#{descuentoController.prepareList}" value="#{bundle.EditDescuentoShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{descuentoController.prepareList}" value="Mostrar todos" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditDescuentoIndexLink}" />
+                <h:link outcome="/index" value="Inicio" />
             </h:form>
         </ui:define>
     </ui:composition>

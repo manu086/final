@@ -106,7 +106,7 @@ public class Pais implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Pais[ idpais=" + idpais + " ]";
+        return nombrePais;
     }
     
 }
