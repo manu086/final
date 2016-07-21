@@ -15,10 +15,10 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewAfpLabel_idafp}"/>
-                    <h:outputText value="#{afpController.selected.idafp}" title="#{bundle.ViewAfpTitle_idafp}"/>
-                    <h:outputText value="#{bundle.ViewAfpLabel_nombreafp}"/>
-                    <h:outputText value="#{afpController.selected.nombreafp}" title="#{bundle.ViewAfpTitle_nombreafp}"/>
+                    <h:outputText value="Código"/>
+                    <h:outputText value="#{afpController.selected.idafp}" title="Código"/>
+                    <h:outputText value="Nombre"/>
+                    <h:outputText value="#{afpController.selected.nombreafp}" title="Nombre"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{afpController.destroyAndView}" value="Eliminar"/>
