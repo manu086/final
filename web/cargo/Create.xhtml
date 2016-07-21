@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateCargoTitle}"></h:outputText>
+            <h:outputText value="Crear Cargos"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,19 +15,19 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCargoLabel_idcargo}" for="idcargo" />
+                    <h:outputLabel value="Código" for="idcargo" />
                     <h:inputText id="idcargo" value="#{cargoController.selected.idcargo}" title="#{bundle.CreateCargoTitle_idcargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_idcargo}"/>
-                    <h:outputLabel value="#{bundle.CreateCargoLabel_nombrecargo}" for="nombrecargo" />
+                    <h:outputLabel value="Nombre" for="nombrecargo" />
                     <h:inputText id="nombrecargo" value="#{cargoController.selected.nombrecargo}" title="#{bundle.CreateCargoTitle_nombrecargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_nombrecargo}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{cargoController.create}" value="#{bundle.CreateCargoSaveLink}" />
+                <h:commandLink action="#{cargoController.create}" value="Guardar" />
                 <br />
                 <br />
-                <h:commandLink action="#{cargoController.prepareList}" value="#{bundle.CreateCargoShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{cargoController.prepareList}" value="Mostrar todos" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateCargoIndexLink}"/>
+                <h:link outcome="/index" value="Inicio"/>
             </h:form>
         </ui:define>
     </ui:composition>

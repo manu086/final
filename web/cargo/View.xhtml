@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewCargoTitle}"></h:outputText>
+            <h:outputText value="Ver Cargos"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,23 +15,23 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCargoLabel_idcargo}"/>
+                    <h:outputText value="Código"/>
                     <h:outputText value="#{cargoController.selected.idcargo}" title="#{bundle.ViewCargoTitle_idcargo}"/>
-                    <h:outputText value="#{bundle.ViewCargoLabel_nombrecargo}"/>
+                    <h:outputText value="Nombre"/>
                     <h:outputText value="#{cargoController.selected.nombrecargo}" title="#{bundle.ViewCargoTitle_nombrecargo}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{cargoController.destroyAndView}" value="#{bundle.ViewCargoDestroyLink}"/>
+                <h:commandLink action="#{cargoController.destroyAndView}" value="Ver"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCargoEditLink}"/>
+                <h:link outcome="Edit" value="Editar"/>
                 <br />
-                <h:commandLink action="#{cargoController.prepareCreate}" value="#{bundle.ViewCargoCreateLink}" />
+                <h:commandLink action="#{cargoController.prepareCreate}" value="Crear Nuevo" />
                 <br />
-                <h:commandLink action="#{cargoController.prepareList}" value="#{bundle.ViewCargoShowAllLink}"/>
+                <h:commandLink action="#{cargoController.prepareList}" value="Mostrar todos"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewCargoIndexLink}"/>
+                <h:link outcome="/index" value="Inicio"/>
 
             </h:form>
         </ui:define>
