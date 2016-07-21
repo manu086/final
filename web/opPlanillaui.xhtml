@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+    </ui:define>
+
+    <ui:define name="body">
+        
+        <h:form id="formPlanilla">
+            <p:panelGrid columns="2" >            
+                <p:commandButton value="EMPLEADOS ACTIVOS" oncomplete="PF('dlgEMPac').show()"/>
+                <p:commandButton value="EMPLEADOS INACTIVOS" oncomplete="PF('dlgEMPinac').show()"/>
+            </p:panelGrid>
+            <br />
+            <br />
+            <p:dataTable value="" id="tblPla" var="pla" editable="true" editMode="cell" widgetVar="cellEMP">
+                <f:facet name="header">
+                    PLANILLA
+                </f:facet>
+                <p:column headerText="Codigo">
+                    <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="CARGOo">
+                    <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="SUELDO">
+                  <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="NUMERO-ISSS">
+                    <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="ID-RENTA">
+                    <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="AFP">
+                    <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="ISSS">
+                    <h:outputText value="" />                        
+                </p:column>
+                <p:column headerText="RENTA">
+                    <h:outputText value="" />                        
+                </p:column>
+           
+            </p:dataTable>
+            
+        </h:form>
+        
+        <p:dialog header="Empleados ACTIVOS" widgetVar="dlgEMPac"   
+                  showEffect="fade" hideEffect="fade" width="1000" height="400">
+            
+            <h:form id="frmIngresarAFP">
+                <p:panelGrid columns="2">
+                    <p:dataTable value="#{planillaController.listaEmpleados}" id="tblEmp" var="emp" editable="true" editMode="cell" widgetVar="cellEMP">
+                    <f:facet name="header">
+                       EMPLEADOS
+                    </f:facet>
+                    <p:column headerText="id">
+                        <h:outputText value="#{emp.idempleado}" />                        
+                    </p:column>
+                    <p:column headerText="id">
+                        <h:outputText value="#{emp.candidatoIdcandidato.nombres}" />                        
+                    </p:column>    
+                    <p:column headerText="CARGO">
+                        <h:outputText value="#{emp.cargoIdcargo.nombrecargo}" />                        
+                    </p:column>
+                    <p:column headerText="SUELDO">
+                      <h:outputText value="#{emp.sueldo}" />                        
+                    </p:column>
+                    <p:column headerText="NUMERO-ISSS">
+                        <h:outputText value="#{emp.isss}" />                        
+                    </p:column>
+                    <p:column headerText="ID-RENTA">
+                        <h:outputText value="#{emp.rentaIdrenta.comentario}" />                        
+                    </p:column>
+
+                </p:dataTable>
+            </p:panelGrid>
+                <p:commandButton value="Generar Planilla" id="GND" actionListener="" icon="ui-icon-disk" update=""/>
+                <br />
+                <br />
+                <p:panelGrid columns="2">
+                    <p:commandButton value="Gurdar" id="GD" actionListener="" icon="ui-icon-disk" update=""/>
+                    <p:commandButton value="cerrar" id="CR" oncomplete="PF('dlgEMPac').hide()" icon="ui-icon-disk" update=""/>
+                </p:panelGrid>
+            </h:form>
+            </p:dialog>
+
+            <p:dialog header="Empleados ACTIVOS" widgetVar="dlgEMPinac"   
+                   showEffect="fade" hideEffect="fade" width="1000" height="400">
+                <h:form>
+                    
+                    <p:panelGrid columns="2">
+                    <p:dataTable value="#{planillaController.listaEmpleadosInactivos}" id="tblEmpInactivos" var="empIn" editable="true" editMode="cell" widgetVar="cellEMP">
+                    <f:facet name="header">
+                       EMPLEADOS INACTIVOS
+                    </f:facet>
+                    <p:column headerText="id">
+                        <h:outputText value="#{empIn.idempleado}" />                        
+                    </p:column>
+                    <p:column headerText="id">
+                        <h:outputText value="#{empIn.candidatoIdcandidato.nombres}" />                        
+                    </p:column>    
+                    <p:column headerText="CARGO">
+                        <h:outputText value="#{empIn.cargoIdcargo.nombrecargo}" />                        
+                    </p:column>
+                    <p:column headerText="SUELDO">
+                      <h:outputText value="#{empIn.sueldo}" />                        
+                    </p:column>
+                    <p:column headerText="NUMERO-ISSS">
+                        <h:outputText value="#{empIn.isss}" />                        
+                    </p:column>
+                    <p:column headerText="ID-RENTA">
+                        <h:outputText value="#{empIn.rentaIdrenta.comentario}" />                        
+                    </p:column>
+
+                </p:dataTable>
+            </p:panelGrid>
+                <p:commandButton value="Gurdar" id="GD" actionListener="#{empleadoController.create()}" icon="ui-icon-disk" update=""/>
+                <p:commandButton value="cerrar" id="CR" oncomplete="PF('dlgEMPinac').hide()" icon="ui-icon-disk" update=""/>
+            </h:form>
+                                
+            </p:dialog>
+    </ui:define>
+
+</ui:composition>

@@ -27,6 +27,8 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author admin
  */
+// coment
+
 @Entity
 @Table(name = "planilla")
 @XmlRootElement
@@ -51,37 +53,37 @@ public class Planilla implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "afp")
-    private String afp;
+    private double afp;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "isss")
-    private String isss;
+    private double isss;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "sueldo")
-    private String sueldo;
+    private double sueldo;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "renta")
-    private String renta;
+    private double renta;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "vacacion")
-    private String vacacion;
+    private double vacacion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "descuentos")
-    private String descuentos;
+    private double descuentos;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "horasextra")
-    private String horasextra;
+    private double horasextra;
     @JoinColumn(name = "empleado_idempleado", referencedColumnName = "idempleado")
     @ManyToOne(optional = false)
     private Empleado empleadoIdempleado;
@@ -95,7 +97,7 @@ public class Planilla implements Serializable {
         this.idplanilla = idplanilla;
     }
 
-    public Planilla(Integer idplanilla, String afp, String isss, String sueldo, String renta, String vacacion, String descuentos, String horasextra) {
+    public Planilla(Integer idplanilla, double afp, double isss, double sueldo, double renta, double vacacion, double descuentos, double horasextra, Empleado empleadoIdempleado, List<Descuentosley> descuentosleyList) {
         this.idplanilla = idplanilla;
         this.afp = afp;
         this.isss = isss;
@@ -104,7 +106,11 @@ public class Planilla implements Serializable {
         this.vacacion = vacacion;
         this.descuentos = descuentos;
         this.horasextra = horasextra;
+        this.empleadoIdempleado = empleadoIdempleado;
+        this.descuentosleyList = descuentosleyList;
     }
+
+    
 
     public Integer getIdplanilla() {
         return idplanilla;
@@ -114,59 +120,59 @@ public class Planilla implements Serializable {
         this.idplanilla = idplanilla;
     }
 
-    public String getAfp() {
+    public double getAfp() {
         return afp;
     }
 
-    public void setAfp(String afp) {
+    public void setAfp(double afp) {
         this.afp = afp;
     }
 
-    public String getIsss() {
+    public double getIsss() {
         return isss;
     }
 
-    public void setIsss(String isss) {
+    public void setIsss(double isss) {
         this.isss = isss;
     }
 
-    public String getSueldo() {
+    public double getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(String sueldo) {
+    public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
 
-    public String getRenta() {
+    public double getRenta() {
         return renta;
     }
 
-    public void setRenta(String renta) {
+    public void setRenta(double renta) {
         this.renta = renta;
     }
 
-    public String getVacacion() {
+    public double getVacacion() {
         return vacacion;
     }
 
-    public void setVacacion(String vacacion) {
+    public void setVacacion(double vacacion) {
         this.vacacion = vacacion;
     }
 
-    public String getDescuentos() {
+    public double getDescuentos() {
         return descuentos;
     }
 
-    public void setDescuentos(String descuentos) {
+    public void setDescuentos(double descuentos) {
         this.descuentos = descuentos;
     }
 
-    public String getHorasextra() {
+    public double getHorasextra() {
         return horasextra;
     }
 
-    public void setHorasextra(String horasextra) {
+    public void setHorasextra(double horasextra) {
         this.horasextra = horasextra;
     }
 

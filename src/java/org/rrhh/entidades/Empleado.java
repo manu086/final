@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     
     @NamedQuery(name="EmpleadoActivo", query="SELECT e FROM Empleado e WHERE e.activo = 1"),
+    @NamedQuery(name="EmpleadoInactivo", query="SELECT e FROM Empleado e WHERE e.activo = 0"),
     @NamedQuery(name="EmpleadoActivo2", query="SELECT e.idempleado, e.cargoIdcargo.nombrecargo, e.sueldo, e.isss, e.rentaIdrenta.comentario FROM Empleado e WHERE e.activo = 1"),
     
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
