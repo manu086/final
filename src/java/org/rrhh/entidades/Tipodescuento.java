@@ -120,7 +120,7 @@ public class Tipodescuento implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Tipodescuento[ idtipodescuento=" + idtipodescuento + " ]";
+        return nombre;
     }
     
 }

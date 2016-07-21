@@ -269,7 +269,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "org.rrhh.entidades.Empleado[ idempleado=" + idempleado + " ]";
+		return  + idempleado + "";
     }
     
 }
