@@ -14,6 +14,7 @@ import javax.persistence.Query;
 import org.rrhh.entidades.Empleado;
 import org.rrhh.entidades.Planilla;
 
+
 /**
  *
  * @author admin
@@ -25,6 +26,7 @@ public class PlanillaFacade extends AbstractFacade<Planilla> {
     @PersistenceContext(unitName = "RecursosPU")
     private EntityManager em;
     private double planilla;
+    List<Planilla> datosPlanilla=null;
 
     @Override
     protected EntityManager getEntityManager() {
@@ -68,7 +70,39 @@ public class PlanillaFacade extends AbstractFacade<Planilla> {
         return listaEmpleadoInactivo;
     } 
      
-     
+    public List<Planilla> getListaPlanilla(){
+        List<Planilla> listaplanilla=null;
+        Query q = em.createNamedQuery("Planilla.findAll");
+        listaplanilla = q.getResultList();
+        
+        return listaplanilla;
+    } 
+
+    
+    public List<Planilla> getDatosPlanilla(){        
+        List<Empleado> datosEmpleados = getListaEmpleado();
+        datosPlanilla=getListaPlanilla();        
+        double calculoRenta;
+        double calculoAfp;
+        double calculoIsss;
+        
+        for(int i=0; i< datosEmpleados.size(); i++){
+            calculoAfp = datosEmpleados.get(i).getSueldo() * 0.0625;
+            calculoIsss = datosEmpleados.get(i).getSueldo() * 0.03;
+            calculoRenta = (datosEmpleados.get(i).getSueldo()- (calculoIsss + calculoAfp)) * 0.10; 
+            
+            datosPlanilla.get(i).setEmpleadoIdempleado(datosEmpleados.get(i));
+            datosPlanilla.get(i).setIsss(calculoIsss);
+            datosPlanilla.get(i).setAfp(calculoAfp);
+            datosPlanilla.get(i).setRenta(calculoRenta);
+            datosPlanilla.get(i).setSueldo(datosEmpleados.get(i).getSueldo());
+        }
+        
+        
+        return datosPlanilla;
+    }
+    
+    
     public double datoAfpPlanilla(){
         double salario = 800.00;
         double datoAfp = salario * 0.0625;
