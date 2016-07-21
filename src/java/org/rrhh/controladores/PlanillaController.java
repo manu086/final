@@ -27,6 +27,7 @@ public class PlanillaController implements Serializable {
     private DataModel listaEmp;
     private DataModel listaEmpInactivo;
     private DataModel listaPlanilla;
+    private DataModel PlanillaDt;
 
     private Planilla current;
     private DataModel items = null;
@@ -236,6 +237,11 @@ public class PlanillaController implements Serializable {
             }
         }
 
+    }
+    
+    public DataModel<Planilla> getLisPlanilladt(){
+        PlanillaDt = new ListDataModel<>(planillaFacade.getDatosPlanilla());
+        return PlanillaDt;
     }
     
     public DataModel<Empleado> getListaPlanillaEmp(){
