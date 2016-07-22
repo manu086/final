@@ -18,14 +18,14 @@
             </p:panelGrid>
             <br />
             <br />
-            <p:dataTable value="" id="tblPla" var="pla" editable="true" editMode="cell" widgetVar="cellEMP">
+            <p:dataTable value="#{planillaController.listaPlanilla}" id="tblPla" var="pla" editable="true" editMode="cell" widgetVar="cellEMP">
                 <f:facet name="header">
                     PLANILLA
                 </f:facet>
                 <p:column headerText="Codigo">
                     <h:outputText value="" />                        
                 </p:column>
-                <p:column headerText="CARGOo">
+                <p:column headerText="CARGO">
                     <h:outputText value="" />                        
                 </p:column>
                 <p:column headerText="SUELDO">
@@ -81,17 +81,17 @@
 
                 </p:dataTable>
             </p:panelGrid>
-                <p:commandButton value="Generar Planilla" id="GND" actionListener="" icon="ui-icon-disk" update=""/>
+                <p:commandButton value="Generar Planilla" id="GND" actionListener="#{empleadoController.create()}" icon="ui-icon-disk" update=""/>
                 <br />
                 <br />
                 <p:panelGrid columns="2">
-                    <p:commandButton value="Gurdar" id="GD" actionListener="" icon="ui-icon-disk" update=""/>
+                    <p:commandButton value="Gurdar" id="GD" actionListener="#{empleadoController.create()}" icon="ui-icon-disk" update=""/>
                     <p:commandButton value="cerrar" id="CR" oncomplete="PF('dlgEMPac').hide()" icon="ui-icon-disk" update=""/>
                 </p:panelGrid>
             </h:form>
             </p:dialog>
 
-            <p:dialog header="Empleados ACTIVOS" widgetVar="dlgEMPinac"   
+            <p:dialog header="Empleados INACTIVOS" widgetVar="dlgEMPinac"   
                    showEffect="fade" hideEffect="fade" width="1000" height="400">
                 <h:form>
                     
@@ -126,6 +126,7 @@
             </h:form>
                                 
             </p:dialog>
+            
     </ui:define>
 
 </ui:composition>
